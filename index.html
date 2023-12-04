@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Game</title>
+    <link rel="stylesheet" href="style.CSS">
+</head>
+<body>
+    
+   <div id="heading" >Who is Lucky ?
+    </div>
+    <div class="y">
+        <h1 id="result"> Test Your luck!</h1>
+        <h1 id="message">Let's Play the Game</h1>
+    </div>
+
+    <table>
+        <tr>
+            <td colspan="3"><input type="text" value= " " id="display" ></td>
+        </tr>
+        
+        <tr>
+            <td><input type="button" value=1 onclick=appen(1) class="nbtn"></td>
+            <td><input type="button" value=2 onclick=appen(2) class="nbtn"></td>
+            <td><input type="button" value=3 onclick=appen(3) class="nbtn"></td>
+        
+        </tr>
+        <tr>
+            <td><input type="button" value=4 onclick=appen(4) class="nbtn"></td>
+            <td><input type="button" value=5 onclick=appen(5) class="nbtn"></td>
+            <td><input type="button" value=6 onclick=appen(6) class="nbtn"></td>
+        
+        <tr>
+            <td><input type="button" value=7 onclick=appen(7) class="nbtn"></td>
+            <td><input type="button" value=8 onclick=appen(8) class="nbtn"></td>
+            <td><input type="button" value=9 onclick=appen(9) class="nbtn"></td>
+        </tr>
+        <tr>  
+           <td><input type="button" value=0 onclick=appen(0) class="nbtn"></td>
+           <td colspan="2"><button  onclick= play() class="sbtn" id="play">Play</button></td>
+        </tr>
+        <tr>
+            <td colspan="3"><input type="button" value= "Reset" onclick= reset()  class="sbtn" id="reset"></td></tr>
+         </tr>
+    </table>
+        
+
+    
+    <script>
+        var r;
+        var  appen = (v)=>{
+            document.getElementById("display").value = v;
+             r = v;
+             document.getElementsByClassName('y')[0].style.backgroundColor = "#4166f5"
+             document.getElementById("result").innerHTML = "Test Your luck!"
+             document.getElementById("message").innerHTML = "Let's Play the Game"
+
+        }
+        var  play = ()=>{
+            
+            if((document.getElementById("display").value ) !== " "){
+               let m = Math.floor(Math.random()*10)
+               document.getElementById('result').innerHTML = m;
+                if(m==r){
+                  document.getElementById("message").innerHTML= "Lucky!"
+                  document.getElementsByClassName('y')[0].style.backgroundColor = "green"
+                  document.getElementsByClassName('y')[0].style.color = "#66cc66"
+                  document.getElementById("display").value = ""
+                }
+                else{
+                  document.getElementById("message").innerHTML = "Better luck nest time"
+                  document.getElementsByClassName('y')[0].style.backgroundColor = "#ff6666"
+                  document.getElementsByClassName('y')[0].style.color = "#ffffff "
+                  
+                }
+
+            }
+            else{
+                document.getElementById("display").value = " "
+                document.getElementById("result").innerHTML = "Test Your luck!"
+                document.getElementById("message").innerHTML = "First Enter the number "
+                document.getElementsByClassName('y')[0].style.backgroundColor = "#ffcc99"
+                document.getElementsByClassName('y')[0].style.color = "#ffffff "
+            }
+            document.getElementById("display").value = " "
+        }
+        let reset =()=>{
+            document.getElementsByClassName('y')[0].style.backgroundColor = "#4166f5"
+            document.getElementsByClassName('y')[0].style.color = "#ffffff "
+            document.getElementById("display").value = " "
+            document.getElementById("result").innerHTML = "Test Your luck!"
+            document.getElementById("message").innerHTML = "Let's Play the Game"
+            
+        }
+        
+
+
+    </script>
+    
+    
+</body>
+</html>
